@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BMS Copilot</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232a78d6'/%3E%3Crect x='6' y='10' width='18' height='12' rx='2' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M26 14v4' stroke='white' stroke-width='2'/%3E%3Cpath d='M15 12l-3 4h5l-3 4' fill='none' stroke='white' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div class="app" id="app">
+  <div class="main">
+    <header class="top">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 11v2"/><path d="M10 9l-2 3h4l-2 3"/></svg>
+        </div>
+        <div>
+          <h1>Next-Gen BMS Copilot</h1>
+          <div class="sub">AI battery management: health, adaptive charging, agentic service, passport</div>
+        </div>
+      </div>
+      <div class="top-right">
+        <span class="pill" title="The 'This laptop' tab reads this computer's real battery">Laptop: live data</span>
+        <span class="pill" id="clock-pill" title="Fleet tabs use a physics-based fleet simulator and its clock">Fleet: simulated</span>
+        <span class="pill" id="level-pill" title="Workforce autonomy level">-</span>
+        <button class="btn small" id="theme-btn" title="Toggle light / dark">Theme</button>
+        <button class="btn small" id="chat-btn">Copilot</button>
+      </div>
+    </header>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-tab="laptop" aria-selected="true">This laptop (live)</button>
+      <button role="tab" data-tab="fleet" aria-selected="false">Fleet (simulated)</button>
+      <button role="tab" data-tab="device" aria-selected="false">Device</button>
+      <button role="tab" data-tab="charging" aria-selected="false">Adaptive charging</button>
+      <button role="tab" data-tab="workforce" aria-selected="false">Agentic workforce</button>
+      <button role="tab" data-tab="passport" aria-selected="false">Passport &amp; second life</button>
+      <button role="tab" data-tab="models" aria-selected="false">Models &amp; validation</button>
+    </nav>
+
+    <!-- THIS LAPTOP (real battery) -->
+    <section id="tab-laptop" role="tabpanel"></section>
+    <!-- FLEET -->
+    <section id="tab-fleet" role="tabpanel" class="hidden"></section>
+    <!-- DEVICE -->
+    <section id="tab-device" role="tabpanel" class="hidden"></section>
+    <!-- CHARGING -->
+    <section id="tab-charging" role="tabpanel" class="hidden"></section>
+    <!-- WORKFORCE -->
+    <section id="tab-workforce" role="tabpanel" class="hidden"></section>
+    <!-- PASSPORT -->
+    <section id="tab-passport" role="tabpanel" class="hidden"></section>
+    <!-- MODELS -->
+    <section id="tab-models" role="tabpanel" class="hidden"></section>
+  </div>
+
+  <aside class="chat" id="chat" aria-label="BMS Copilot chat">
+    <div class="chat-head">
+      <div class="row"><h2>BMS Copilot</h2><span class="spacer"></span><button class="btn small" id="chat-close" aria-label="Close copilot">Close</button></div>
+      <div class="muted" id="chat-mode" style="font-size:12px">-</div>
+    </div>
+    <div class="chat-log" id="chat-log" aria-live="polite"></div>
+    <div class="chips" id="chips"></div>
+    <form class="chat-input" id="chat-form">
+      <textarea id="chat-text" rows="1" placeholder="Ask about the fleet, a device, charging, passports..."></textarea>
+      <button class="btn primary" type="submit">Send</button>
+    </form>
+  </aside>
+</div>
+<script src="/static/charts.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

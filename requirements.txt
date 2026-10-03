@@ -1,0 +1,10 @@
+numpy>=2.0
+scipy>=1.13          # HiGHS MILP solver, L-BFGS-B, least squares
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+cryptography>=42     # Ed25519 signing of OTA packages
+anthropic>=1.0       # optional at runtime: Claude-powered copilot (falls back to offline mode)
+onnx>=1.16           # ONNX export of the on-device charge policy
+onnxruntime>=1.18    # parity check of the exported ONNX models
+qrcode>=7.4          # battery passport QR code
